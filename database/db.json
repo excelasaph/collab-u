@@ -1,0 +1,481 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "first_name": "EXCEL",
+      "last_name": "ASAPH",
+      "email": "e.asaph@alustudent.com",
+      "password": "12345",
+      "month": "January",
+      "year": "2022",
+      "group": "1",
+      "isLoggedin": true
+    },
+    {
+      "id": "2",
+      "first_name": "EMMANUEL",
+      "last_name": "OBOLO",
+      "email": "e.obolo@alustudent.com",
+      "password": "12345",
+      "month": "January",
+      "year": "2022",
+      "group": "1",
+      "isLoggedin": true
+    },
+    {
+      "id": "3",
+      "first_name": "ABIODUN",
+      "last_name": "KUMUYI",
+      "email": "a.kumuyi@alustudent.com",
+      "password": "12345",
+      "month": "May",
+      "year": "2022",
+      "group": "",
+      "isLoggedin": true
+    },
+    {
+      "id": "4",
+      "first_name": "HUSNA",
+      "last_name": "ABDALLAH",
+      "email": "husnamoh2001@gmail.com",
+      "password": "12345",
+      "month": "September",
+      "year": "2022",
+      "group": "",
+      "isLoggedin": true
+    },
+    {
+      "id": "5",
+      "first_name": "MICHAEL",
+      "last_name": "OBOLO",
+      "email": "michael.obolo@yahoo.com",
+      "password": "12345",
+      "month": "January",
+      "year": "2023",
+      "group": "1",
+      "isLoggedin": true
+    },
+    {
+      "id": "6",
+      "first_name": "TEMITOPE",
+      "last_name": "OBOLO",
+      "email": "testcase1@faisal.com",
+      "password": "12345",
+      "month": "September",
+      "year": "2023",
+      "group": "",
+      "isLoggedin": true
+    },
+    {
+      "id": "7",
+      "first_name": "DELIGHT",
+      "last_name": "ASAPH",
+      "email": "d.asaph@alustudent.com",
+      "password": "12345",
+      "month": "September",
+      "year": "2023",
+      "group": "",
+      "isLoggedin": true
+    }
+  ],
+  "groups": [
+    {
+      "2022": [
+        {
+          "id": "1",
+          "January": [
+            {
+              "id": "1",
+              "group1": {
+                "Project Name": "first project",
+                "Project Description": "testing the group",
+                "usersId": [
+                  2,
+                  1
+                ],
+                "length": 2
+              }
+            },
+            {
+              "id": "2",
+              "group2": {
+                "Project Name": "second group",
+                "Project Description": "testing second group",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "3",
+              "group3": {
+                "Project Name": "third project group",
+                "Project Description": "testing third project group and this is beyond awesome.",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "4",
+              "group4": {
+                "Project Name": "the fourth group",
+                "Project Description": "july 27th",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "5",
+              "group5": {
+                "Project Name": "new group",
+                "Project Description": "this is a group 5",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "6",
+              "group6": {
+                "Project Name": "the real nigga challenge",
+                "Project Description": "group6",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "7",
+              "group7": {
+                "Project Name": "",
+                "Project Description": "",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "8",
+              "group8": {
+                "Project Name": "Excel's Project",
+                "Project Description": "My New Project",
+                "usersId": [],
+                "length": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "May": [
+            {
+              "id": "1",
+              "group1": {
+                "Project Name": "may group",
+                "Project Description": "first group",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "2",
+              "group2": {
+                "Project Name": "group2",
+                "Project Description": "group2",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "3",
+              "group3": {
+                "Project Name": "group3",
+                "Project Description": "grouppe 3",
+                "usersId": [],
+                "length": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "September": [
+            {
+              "id": "1",
+              "group1": {
+                "Project Name": "group1 september",
+                "Project Description": "september",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "2",
+              "group2": {
+                "Project Name": "group2",
+                "Project Description": "group2",
+                "usersId": [],
+                "length": 0
+              }
+            }
+          ]
+        }
+      ],
+      "id": "1"
+    },
+    {
+      "2023": [
+        {
+          "id": "1",
+          "January": [
+            {
+              "id": "1",
+              "group1": {
+                "Project Name": "group1",
+                "Project Description": "of jan 2023",
+                "usersId": [
+                  5
+                ],
+                "length": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "May": []
+        },
+        {
+          "id": "3",
+          "September": [
+            {
+              "id": "1",
+              "group1": {
+                "Project Name": "group1",
+                "Project Description": "2023 september",
+                "usersId": [],
+                "length": 0
+              }
+            },
+            {
+              "id": "2",
+              "group2": {
+                "Project Name": "september 2023 group2",
+                "Project Description": "this is the gratests group",
+                "usersId": [],
+                "length": 0
+              }
+            }
+          ]
+        }
+      ],
+      "id": "2"
+    },
+    {
+      "2024": [
+        {
+          "id": "1",
+          "January": []
+        },
+        {
+          "id": "2",
+          "May": []
+        },
+        {
+          "id": "3",
+          "September": []
+        }
+      ],
+      "id": "3"
+    }
+  ],
+  "comments": [
+    {
+      "id": "9",
+      "userId": "1",
+      "text": "latest comment by me",
+      "dateObject": "28/07/2024, 21:54:25",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "10",
+      "userId": "1",
+      "text": "new comment by me",
+      "dateObject": "28/07/2024, 21:54:30",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "11",
+      "userId": "1",
+      "text": "last comment by me",
+      "dateObject": "28/07/2024, 21:55:25",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "12",
+      "userId": "1",
+      "text": "new comment now",
+      "dateObject": "28/07/2024, 23:22:26",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "13",
+      "userId": "1",
+      "text": "final comment",
+      "dateObject": "28/07/2024, 23:23:00",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "14",
+      "userId": "1",
+      "text": "11:24 comment",
+      "dateObject": "28/07/2024, 23:24:49",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "15",
+      "userId": "1",
+      "text": "11:24 comment",
+      "dateObject": "30/06/2024, 23:24:49",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "16",
+      "userId": "1",
+      "text": "Hey, man. How are you?",
+      "dateObject": "28/07/2024, 23:36:53",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "17",
+      "userId": "1",
+      "text": "hey what's up man",
+      "dateObject": "28/07/2024, 23:39:01",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "20",
+      "userId": "1",
+      "text": "abiodun just came in",
+      "dateObject": "28/07/2024, 23:41:47",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "21",
+      "userId": "1",
+      "text": "abiodun just came in",
+      "dateObject": "28/07/2024, 23:42:24",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "22",
+      "userId": "1",
+      "text": "the project is awesome",
+      "dateObject": "28/07/2024, 23:45:48",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "23",
+      "userId": "1",
+      "text": "Okay, tell me more about i",
+      "dateObject": "28/07/2024, 23:54:56",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "24",
+      "userId": "2",
+      "text": "So, it's more about databases, you know 😁",
+      "dateObject": "28/07/2024, 23:55:28",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "25",
+      "userId": "1",
+      "text": "Oh, I see 😂",
+      "dateObject": "28/07/2024, 23:55:49",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "26",
+      "userId": "1",
+      "text": "How far that baddie na😒 ",
+      "dateObject": "28/07/2024, 23:57:19",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "27",
+      "userId": "2",
+      "text": "Which one? Amaka? 🥲",
+      "dateObject": "28/07/2024, 23:57:44",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "28",
+      "userId": "2",
+      "text": "na shantel dey hot now",
+      "dateObject": "29/07/2024, 00:02:30",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    }
+  ],
+  "files": [
+    {
+      "id": "1",
+      "userId": "1",
+      "filename": "first file",
+      "url": "https://docs.google.com/document/d/1J8kUpMIXOk-M27HWzTo4Z2IYq73lFGIhgNbPhIfT9JA/edit",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "filename": "second file",
+      "url": "https://docs.google.com/document/d/1J8kUpMIXOk-M27HWzTo4Z2IYq73lFGIhgNbPhIfT9JA/edit",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    },
+    {
+      "id": "3",
+      "userId": "2",
+      "filename": "third file",
+      "url": "https://docs.google.com/document/d/1J8kUpMIXOk-M27HWzTo4Z2IYq73lFGIhgNbPhIfT9JA/edit",
+      "intakeYear": "2022",
+      "intakeMonth": "January",
+      "group": "1"
+    }
+  ]
+}

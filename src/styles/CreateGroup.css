@@ -1,0 +1,44 @@
+.mycreategroup-container {
+    width: inherit;
+    height: 20rem;
+    border: 1px solid #222129;
+}
+
+
+.creategroup-items-fixed {
+    width: 100%;
+    height: 20rem;
+    display: flex;
+    flex-direction: row;
+    gap: 30%;
+    /* border: 1px solid #222129; */
+    align-items: center;
+    /* justify-content: space-between;
+    align-items: center; */
+    /* padding-bottom: 1rem; */
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; */
+}
+
+.creategroup-button-details {
+    margin-left: 5rem;
+    width: 20%;
+    height: 10rem;
+    background-color: aqua;
+}
+
+.creategroup-button {
+    width: 20rem;
+    height: 10rem;
+    background: #222129;
+    color: #fff;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
