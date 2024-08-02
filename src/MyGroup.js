@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import userAxios from './apis/userApi';
-import './styles/MyGroup.css'
+import './styles/MyGroup.css';
 
 export default function MyGroup({ groups, setGroups, month, year, yearId, id, users, setUsers }) {
     const [showMyGroup, setShowMyGroup] = useState(false);
@@ -26,7 +26,10 @@ export default function MyGroup({ groups, setGroups, month, year, yearId, id, us
             setMyGroup({});
             setUser({});
         } else {
-            const userGroup = groups[year][monthObj[month] - 1][month][groupId - 1]
+            let groupIndex;
+            const arrayToCheck = groups[year][monthObj[month] - 1][month]
+            groupIndex = arrayToCheck.findIndex((element) => parseInt(element.id) === groupId) + 1;         
+            const userGroup = groups[year][monthObj[month] - 1][month][groupIndex - 1]
             setIsMyGroupGotten(true)
             setMyGroup(userGroup);
             setUser(getUser);
@@ -44,10 +47,12 @@ export default function MyGroup({ groups, setGroups, month, year, yearId, id, us
     const handleLeaveGroup = () => {
         const newgroups = { ...groups };
         const group = newgroups[year][monthObj[month] - 1][month];
+        console.log(group);
         const userId = parseInt(id);
         (myGroup[`group${loggedUser.group}`]["usersId"]).splice((myGroup[`group${loggedUser.group}`]["usersId"]).indexOf(userId), 1);
         myGroup[`group${loggedUser.group}`]["length"] = (myGroup[`group${loggedUser.group}`]["usersId"]).length;
-        group.splice(parseInt(loggedUser.group) - 1, 1, myGroup);
+        const groupIndex = group.findIndex((group) => group.id === loggedUser.group)
+        group.splice(groupIndex, 1, myGroup);
         newgroups[year][monthObj[month] - 1][month] = group;
 
         // changed user group to ""
@@ -95,12 +100,21 @@ export default function MyGroup({ groups, setGroups, month, year, yearId, id, us
 
     return (
         <>
+            <div className='mygroup-main-title'>
+                <p>My Groups</p>
+            </div>
             {isMyGroupGotten ? (
                 <div className='mygroup-container'>
+
                     <div className='group-items-fixed'>
                         {myGroup.id ? (
                             <div className='group-button-details'>
                                 <div
+                                    style={showMyGroup ? 
+                                        { 
+                                            background: '#609257',
+                                            color: '#fff' 
+                                        } : {} }
                                     className='mygroup-button'
                                     type='button'
                                     onClick={handleShowMyGroup}
@@ -111,32 +125,32 @@ export default function MyGroup({ groups, setGroups, month, year, yearId, id, us
                         ) : null}
                         {showMyGroup ? (
                             <div className='group-project-details'>
-                                <div>
+                                <div className='group-project-name'>
                                     <p>Project Name:</p>
-                                    <div>{myGroup[`group${myGroup.id}`]["Project Name"]}</div>
+                                    <div className='group-project-title'>{myGroup[`group${myGroup.id}`]["Project Name"]}</div>
                                 </div>
-                                <div>
+                                <div className='group-project-description'>
                                     <p>Project Description:</p>
-                                    <div>
+                                    <div className='group-project-description-text'>
                                         {myGroup[`group${myGroup.id}`]["Project Description"]}
                                     </div>
                                 </div>
-                                <div>
-                                    <p>People</p>
+                                <div className='group-members-number'>
                                     <div>
                                         {myGroup[`group${myGroup.id}`]["length"]}
                                     </div>
+                                    <p>{myGroup[`group${myGroup.id}`]["length"] <= 1 ? 'Member' : 'Members'}</p>
                                 </div>
-                                <div>
-                                    <p>Members:</p>
+                                <div className='group-members-names'>
                                     {(users.filter((user) => user.group === `${myGroup.id}` && user.month === month && user.year === year)).map((user) => (
-                                        <div key={user.id}>
-                                            <p>{user.first_name} {user.last_name}</p>
+                                        <div key={user.id} className='group-members-names-div'>
+                                            <p className='group-members-fullname'>{(user.first_name).toLowerCase()} {(user.last_name).toLowerCase()}</p>
                                         </div>
                                     ))}
                                 </div>
-                                <div>
+                                <div className='mygroup-btn'>
                                     <button
+                                        className='mygroup-submit-btn'
                                         type='button'
                                         onClick={handleLeaveGroup}
                                     >

@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom';
 import GeneralHomeHeader from './GeneralHomeHeader';
 import { useState, useEffect } from 'react';
+import './styles/FileSharing.css';
+import PlayOnce from './PlayOnce';
 import userAxios from './apis/userApi';
 
-export default function FileSharing({ users }) {
+export default function FileSharing({ users, appDropDown, handleAppDropDown, showDropDown, handleShowDropDown }) {
     const { id, year, month, group, members, project_name } = useParams();
 
     const [userGroupFiles, setUserGroupFiles] = useState([]);
@@ -93,7 +95,6 @@ export default function FileSharing({ users }) {
         setShowAddFile(false);
     }
 
-
     return (
         <main>
             <section>
@@ -106,81 +107,84 @@ export default function FileSharing({ users }) {
                         users={users}
                         members={members ? members : ""}
                         project_name={project_name ? project_name : ""}
+                        appDropDown={appDropDown}
+                        showDropDown={showDropDown}
+                        handleShowDropDown={handleShowDropDown}
                     />
                 </div>
                 {group ? (
-                    <div>
-                        <div>
-                            <div>
-                                <button
-                                    type='button'
-                                    onClick={handleShowAddFile}
-                                >
-                                    Click to Add File
-                                </button>
+                    <div className='filesharing-container' onClick={handleAppDropDown}>
+                        <div className="files-dropdown">
+                            <div className="select" onClick={handleShowAddFile}>
+                                <span type="button" className="selected">Click to Add File</span>
+                                <div className={`file-caret ${showAddFile ? 'file-caret-rotate' : null}`}></div>
                             </div>
                             {showAddFile ? (
-                                <div>
-                                    <form onSubmit={handleFileSharing}>
-                                        <div>
-                                            <label htmlFor="file-name">File Name:</label>
-                                            <input
-                                                type="text"
-                                                id="file-name"
-                                                value={fileName}
-                                                onChange={(e) => { setFileName(e.currentTarget.value) }}
-                                                required
-                                            />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="file-link">File Link:</label>
-                                            <input
-                                                type="url"
-                                                id="file-link"
-                                                value={fileLink}
-                                                onChange={(e) => { setFileLink(e.currentTarget.value) }}
-                                                placeholder="https://example.com"
-                                                pattern="https://.*"
-                                                required
-                                            />
-                                        </div>
-                                        <div>
-                                            <button
-                                                type='submit'
-                                            >
-                                                Add File
-                                            </button>
-                                        </div>
-                                    </form>
+                                <div className='files-menu'>
+                                    <div className='files-forms-div'>
+                                        <form onSubmit={handleFileSharing}>
+                                            <div className='files-form-group'>
+                                                <label htmlFor="file-name">File Name:</label>
+                                                <input
+                                                    type="text"
+                                                    id="file-name"
+                                                    value={fileName}
+                                                    onChange={(e) => { setFileName(e.currentTarget.value) }}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className='files-form-group'>
+                                                <label htmlFor="file-link">File Link:</label>
+                                                <input
+                                                    type="url"
+                                                    id="file-link"
+                                                    value={fileLink}
+                                                    onChange={(e) => { setFileLink(e.currentTarget.value) }}
+                                                    placeholder="https://example.com"
+                                                    pattern="https://.*"
+                                                    required
+                                                />
+                                            </div>
+                                            <div className='files-btn'>
+                                                <button
+                                                    className='files-submit-btn'
+                                                    type='submit'
+                                                >
+                                                    Add File
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             ) : null}
                         </div>
+
                         {filesExist ? (
-                            <div>
+                            <div className='fileshared-section'>
                                 {userGroupFiles.map((fileshared) => (
                                     <div key={fileshared.id}>
-                                        <div>
-                                            <span>{(users.find((user) => user.id === fileshared.userId)).first_name}</span>
-                                            <span>{(users.find((user) => user.id === fileshared.userId)).last_name}</span>
+                                        <div className='comment-top-names'>
+                                            <span>{(users.find(((user) => user.id === fileshared.userId)).first_name).toLowerCase()}</span>
+                                            <span>{((users.find((user) => user.id === fileshared.userId)).last_name).toLowerCase()}</span>
                                         </div>
-                                        <div>
-                                            <a href={fileshared.url}>📂</a>
+                                        <div className='fileshared-icon'>
+                                            <a href={fileshared.url} target='_blank' rel="noreferrer"><PlayOnce /></a>
                                         </div>
-                                        <div>
+                                        <div className='fileshared-name'>
                                             <p>{(fileshared.filename).length > sliceLength ? `${(fileshared.filename).slice(0, sliceLength)}...` : fileshared.filename}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         ) : (
-                            <div>
-                                No files shared yet, share file 📂
+                            <div className='no-fileshared-section'>
+                                No files shared yet. Share file 📂
                             </div>
                         )}
                     </div>
                 ) : (
-                    <div>
-                        User doesn't belong to any group, no files available
+                    <div className='discussion-no-comment-section' onClick={handleAppDropDown}>
+                        User doesn't belong to any group. No files available.
                     </div>
                 )}
             </section>

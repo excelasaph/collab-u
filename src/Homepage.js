@@ -7,7 +7,7 @@ import MyGroup from './MyGroup';
 import AllGroup from './AllGroup';
 import HomepageHeader from './HomepageHeader';
 
-const Homepage = ({ users, setUsers }) => {
+const Homepage = ({ users, setUsers, appDropDown, handleAppDropDown, showDropDown, handleShowDropDown }) => {
   const [groups, setGroups] = useState({});
   const [isGroupsGotten, setIsGroupGotten] = useState(false);
   const { id, year, month } = useParams();
@@ -34,7 +34,7 @@ const Homepage = ({ users, setUsers }) => {
   }, [yearId])
   return (
     <main>
-      <section>
+      <section className='homepage-section'>
         {isGroupsGotten ? (
           <div className='fixed-homepage-header'>
             <HomepageHeader
@@ -43,11 +43,14 @@ const Homepage = ({ users, setUsers }) => {
               id={id}
               users={users}
               groups={groups}
+              appDropDown={appDropDown}
+              showDropDown={showDropDown}
+              handleShowDropDown={handleShowDropDown}
             />
           </div>
         ) : null}
         {isGroupsGotten ? (
-          <div className='groups-container'>
+          <div className='homepage-groups-container' onClick={handleAppDropDown}>
             <MyGroup
               groups={groups}
               setGroups={setGroups}

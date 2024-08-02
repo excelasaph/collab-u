@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import userAxios from './apis/userApi';
 import './styles/CreateGroup.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 const CreateGroup = ({ groups, setGroups, month, year, yearId, id, users, setUsers }) => {
     const [showCreateGroup, setShowCreateGroup] = useState(false);
@@ -33,7 +35,8 @@ const CreateGroup = ({ groups, setGroups, month, year, yearId, id, users, setUse
         // Getting the new group ID for that intake Year and Month
         const newgroups = { ...groups };
         const groupArray = newgroups[year][monthObj[month] - 1][month];
-        const newId = groupArray.length ? parseInt(groupArray[groupArray.length - 1].id) + 1 : 1;
+        let newId = groupArray.length ? groupArray.reduce((accumulator, currentValue) => typeof accumulator === "number" ? parseInt(accumulator) > parseInt(currentValue.id) ? parseInt(accumulator) : parseInt(currentValue.id) : parseInt(accumulator.id) > parseInt(currentValue.id) ? parseInt(accumulator.id) : parseInt(currentValue.id), 0) : 0;
+        newId = parseInt(newId) + 1;
         const newGroup = `group${newId}`
         const newGroupObj = {
             id: `${newId}`,
@@ -96,10 +99,11 @@ const CreateGroup = ({ groups, setGroups, month, year, yearId, id, users, setUse
                 <div className='mycreategroup-container'>
                     <div className='creategroup-items-fixed'>
                         <div className='creategroup-button-details'>
+                            
                             <div
                                 className='creategroup-button'
                                 onClick={handleShowCreateGroup}
-                            >Create Group
+                            >Create Group<FontAwesomeIcon icon={faCirclePlus} className='fa-creategroup' />
                             </div>
                         </div>
 
