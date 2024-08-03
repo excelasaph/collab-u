@@ -50,13 +50,9 @@ Ensure you have the following installed on your machine:
 1. Clone the repository:
 
    ```bash
-<<<<<<< HEAD
-   git clone https://github.com/excel-asaph/CollabU.git
-=======
    git clone https://github.com/excel-asaph/collab-u.git
->>>>>>> 641c8fa272c04d9921b41a156bc208d74cdb9c71
    cd CollabU
-   
+   ```
 2. Install dependencies:
 
   ```bash
