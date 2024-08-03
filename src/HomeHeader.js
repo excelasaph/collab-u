@@ -15,7 +15,6 @@ const HomeHeader = ({ authUser, users, setUsers }) => {
 
     const handleLogOut = () => {
         // get the users that are not this logged user
-        console.log(authUser);
         if (!authUser.length) {
             navigate("/");
             return;
@@ -28,9 +27,7 @@ const HomeHeader = ({ authUser, users, setUsers }) => {
         // create a function to patch this isloggedin status to the data base
         const logOutUser = async (id) => {
             try {
-                const changeIsLoggedIn = await userAxios.patch(`/users/${id}/`, { isLoggedin: false });
-                console.log(changeIsLoggedIn);
-                console.log(users);
+                await userAxios.patch(`/users/${id}/`, { isLoggedin: false });
                 navigate("/");
             } catch (error) {
                 console.error(`An Error with status ${error.response.status} and headers of ${error.response.headers} with data ${error.response.data} occured :(`);
@@ -63,11 +60,11 @@ const HomeHeader = ({ authUser, users, setUsers }) => {
                         <FontAwesomeIcon icon={faUserPlus} className='fa-icon' />
                         <p>Sign Up</p>
                     </Link></li>
-                    <li className='nav-links3'><Link to="/teacher"><FontAwesomeIcon icon={faClipboardUser} className='fa-icon'/>
-                    <p>Teacher</p>
+                    <li className='nav-links3'><Link to="/teacher"><FontAwesomeIcon icon={faClipboardUser} className='fa-icon' />
+                        <p>Teacher</p>
                     </Link></li>
-                    <li className='nav-links'><Link to="/insights"><FontAwesomeIcon icon={faRankingStar} className='fa-icon'/>
-                    <p>Insights</p>
+                    <li className='nav-links'><Link to="/insights"><FontAwesomeIcon icon={faRankingStar} className='fa-icon' />
+                        <p>Insights</p>
                     </Link></li>
                     <li>
                         <div className='logout-div' onClick={handleLogOut}>

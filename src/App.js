@@ -98,7 +98,6 @@ function App() {
     // new user id
     let id = users.length ? users.reduce((accumulator, currentValue) => typeof accumulator === "number" ? parseInt(accumulator) > parseInt(currentValue.id) ? parseInt(accumulator) : parseInt(currentValue.id) : parseInt(accumulator.id) > parseInt(currentValue.id) ? parseInt(accumulator.id) : parseInt(currentValue.id), 0) : 0;
     id = parseInt(id) + 1;
-    console.log(id);
     const isLoggedin = false;
     // note here the id's of endpoints must be in strings
     const newUser = { id: `${id}`, first_name: first_name.toUpperCase(), last_name: last_name.toUpperCase(), email, password, month: intakeMonth, year: intakeYear, group: '', isLoggedin };
@@ -109,8 +108,7 @@ function App() {
     // post the data to the server
     const addUser = async (user) => {
       try {
-        const userData = await userAxios.post(`/users/`, user);
-        console.log(userData.data);
+        await userAxios.post(`/users/`, user);
       } catch (error) {
         console.error(`An error with status ${error.response.status} and headers of ${error.response.headers} with data ${error.response.data} occured :(`)
       }
@@ -162,8 +160,7 @@ function App() {
     newUserData = [...newUserData, authenticateUser[0]];
     const changeUserIsLoggedin = async (id) => {
       try {
-        const changeIsLoggedIn = await userAxios.patch(`/users/${id}/`, { isLoggedin: true });
-        console.log(changeIsLoggedIn);
+        await userAxios.patch(`/users/${id}/`, { isLoggedin: true });
         const month = authenticateUser[0].month;
         const year = authenticateUser[0].year;
 
@@ -180,21 +177,21 @@ function App() {
     setEmail('');
     setSigninError('');
   }
-  
+
   const handleShowDropDown = () => {
     if (showDropDown) {
-        setShowDropDown(false);
+      setShowDropDown(false);
     } else {
-        setShowDropDown(true);
-        setAppDropDown(true);
+      setShowDropDown(true);
+      setAppDropDown(true);
     }
   }
   const handleAppDropDown = () => {
     if (showDropDown) {
-        setAppDropDown(false);
-        setShowDropDown(false);
+      setAppDropDown(false);
+      setShowDropDown(false);
     } else {
-        setAppDropDown(true);
+      setAppDropDown(true);
     }
   }
 
